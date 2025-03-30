@@ -1,16 +1,19 @@
 
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const http = require('http');
 const cors = require('cors');
+
 const { Server } = require('socket.io');
+const port = process.env.PORT || 3001;
 app.use(cors());
 
 const server = http.createServer(app);
 
 const io = new Server(server, { 
   cors: { 
-    origin: "http://192.168.254.107:3000", 
+    origin: "https://server-1-sxdl.onrender.com", 
     methods: ["GET", "POST"],
   },
 });
@@ -71,6 +74,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3001, () => {
-  console.log('listening on *:3001');
+server.listen(port, () => {
+  console.log(`listening on *:${port}`);
 });
