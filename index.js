@@ -18,6 +18,10 @@ const io = new Server(server, {
   },
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
 const rooms = {};
 const activeUsers = {};
 const allMessages = {};
