@@ -8,6 +8,7 @@ const socket = io.connect('https://messagingbackend.onrender.com');
 
 function App() {
   const [userName, setUserName] = useState('');
+  
   const [room, setRoom] = useState('');
   const [showChat, setShowChat] = useState(false);
 
